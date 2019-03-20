@@ -9,17 +9,14 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
 ```{r}
-dialogue <- c('小明說:"明天不用上課。"',
-              '小花說:"真的嗎?"'）
- cat(dialogue, sep="\n"             
-```
-```{r}
-dialogue <- c("'曉明說明天不用上課'",
-              "'小花說:真的嗎?'")
+dialogue <- c("小明說：'明天不用上課。'",
+               "小花說：'真的嗎？'")
 
 cat(dialogue, sep="\n")
 ```
+
             
                   
 
@@ -77,18 +74,28 @@ class(trueInteger) # 可以進行數值運算
 library(lubridate)
 ```
 ```{r}
-dtObject<-ymd_hms("1970-01-01 00:02:53") 
+time<-ymd_hms("1999-01-01 00:02:53") 
 ```
 
 
 ```{r}
-dtObjectVector<-ymd_hms(
-  c("1970-01-01 00:02:53",
-    "1980-02-11 11:25:22")
+time<-ymd_hms(
+  c("1999-01-01 00:02:53")
+   
 )
 ```
+
 ```{r}
-class(dtObject)
+class(time)
 ```
 
+```{r}
+time
+```
+
+```{r}
+truetime <- as.integer(time)
+class(truetime) 
+sum (truetime)
+```
 
