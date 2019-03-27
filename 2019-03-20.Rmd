@@ -142,4 +142,11 @@ as.integer(twDateTime)
 as.integer(LondonDateTime)
 ```
 
+```{r}
+twwDateTime <- mdy_hms("4-18-2017 14:04:00", tz="Asia/Taipei")
+```
+
+```{r}
+twwDateTime
+```
 
