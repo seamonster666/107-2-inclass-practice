@@ -150,3 +150,34 @@ twwDateTime <- mdy_hms("4-18-2017 14:04:00", tz="Asia/Taipei")
 twwDateTime
 ```
 
+```{r}
+twwwDateTime <- ymd("2019-03-18", tz="Asia/Taipei")
+```
+
+```{r}
+twwwDateTime
+```
+
+```{r}
+tppDateTime <- mdy("March 3,2019", tz="Asia/Taipei")
+```
+
+```{r}
+tppDateTime
+```
+
+```{r}
+London2DateTime <- with_tz(twwDateTime,tzone="Europe/London")
+```
+
+```{r}
+London2DateTime
+```
+
+```{r}
+as.integer (ymd("1970-01-01"))
+as.integer (ymd("1970-01-02")) 
+as.integer (ymd("2019-03-11"))
+as.integer (ymd("1999-09-14"))
+```
+
