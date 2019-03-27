@@ -229,3 +229,19 @@ tppDateTime - twDateTime
 twwDateTime- tppDateTime
 ```
 
+```{r}
+startingDate <- ymd("2000-02-17")
+```
+
+```{r}
+startingDate + years(13)
+```
+
+```{r}
+startingDate + dyears(14)
+```
+
+```{r}
+startingDate + days(145)
+```
+
