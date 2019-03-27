@@ -24,6 +24,7 @@ cat(dialogue, sep="\n")
 aLogical <- c(T,TRUE,F,FALSE,FALSE)
 class(aLogical)
 ```
+
 ```{r}
 sum(aLogical)
 ```
@@ -33,9 +34,11 @@ studentMajors <- factor(
   c("經濟系", "經濟系", "法律系")
 )
 ```
+
 ```{r}
 typeof(studentMajors)
 ```
+
 ```{r}
 levels(studentMajors)
 ```
@@ -46,9 +49,11 @@ studentMajors <- factor(
   c("經濟系","統計系","法律系")
 )
 ```
+
 ```{r}
 typeof(studentMajors)
 ```
+
 ```{r}
 birthplace <- factor(
   c("台北", "台北", "台中","台中","台中")
@@ -56,16 +61,20 @@ birthplace <- factor(
 levels(birthplace)
 as.integer(birthplace)
 ```
+
 ```{r}
 levels(birthplace)
 ```
+
 ```{r}
 stringInteger <- c("1","2")
 class(stringInteger)
 ```
+
 ```{r}
 birthplace
 ```
+
 ```{r}
 trueInteger <- as.integer(stringInteger)
 class(trueInteger) # 可以進行數值運算
@@ -123,4 +132,14 @@ BerlinDateTime <- with_tz(twDateTime,tzone="Europe/Berlin")
 ```{r}
 BerlinDateTime
 ```
+
+```{r}
+as.integer(twDateTime)
+```
+
+
+```{r}
+as.integer(LondonDateTime)
+```
+
 
