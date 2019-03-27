@@ -70,9 +70,11 @@ birthplace
 trueInteger <- as.integer(stringInteger)
 class(trueInteger) # 可以進行數值運算
 ```
+
 ```{r}
 library(lubridate)
 ```
+
 ```{r}
 time<-ymd_hms("1999-01-01 00:02:53") 
 ```
@@ -97,5 +99,28 @@ time
 truetime <- as.integer(time)
 class(truetime) 
 sum (truetime)
+```
+
+```{r}
+twDateTime <- ymd_hms("2019-03-18 14:04:00", tz="Asia/Taipei")
+```
+
+```{r}
+twDateTime
+```
+
+```{r}
+LondonDateTime <- with_tz(twDateTime,tzone="Europe/London")
+```
+
+```{r}
+LondonDateTime
+```
+```{r}
+BerlinDateTime <- with_tz(twDateTime,tzone="Europe/Berlin")
+```
+
+```{r}
+BerlinDateTime
 ```
 
