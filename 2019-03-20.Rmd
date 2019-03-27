@@ -245,3 +245,31 @@ startingDate + dyears(14)
 startingDate + days(145)
 ```
 
+```{r}
+startingDate + minutes(1)
+```
+
+```{r}
+x <- 98
+y <- 798
+x2 <- c(1,5,10)
+y2 <- c(-1,5,20)
+```
+
+```{r}
+x>=y
+```
+
+```{r}
+x<y
+```
+
+```{r}
+z=y
+z
+```
+
+```{r}
+x==y
+```
+
