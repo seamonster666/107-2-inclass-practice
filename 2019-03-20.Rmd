@@ -81,6 +81,11 @@ class(trueInteger) # 可以進行數值運算
 ```
 
 ```{r}
+trueInteger
+```
+
+
+```{r}
 library(lubridate)
 ```
 
@@ -410,3 +415,4 @@ head(currency)
 sum(currency =="日圓JPY/USD" )
 ```
 
+xor(x5 %in% greatTaipei, y5=="女")

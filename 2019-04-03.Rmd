@@ -3,16 +3,53 @@ title: "R Notebook"
 output: html_notebook
 ---
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
-
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
-
 ```{r}
-plot(cars)
+x5 <- c("台北市","新北市","高雄市")
+greatTaipei <- c("台北市","新北市")
+
+x5 %in% greatTaipei
+
 ```
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+```{r}
+!(x5 %in% greatTaipei)
+```
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+```{r}
+y5 <- c("女","男","女")
 
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+y5=="女"
+
+```
+
+```{r}
+!(y5=="女")
+```
+
+```{r}
+x5 %in% greatTaipei
+y5=="女"
+(x5 %in% greatTaipei) & (y5=="女")
+#同時來自大台北又女性
+```
+
+```{r}
+which((x5 %in% greatTaipei) & (y5=="女"))
+```
+
+```{r}
+(x5 %in% greatTaipei) | (y5=="女")
+```
+
+```{r}
+which((x5 %in% greatTaipei) | (y5=="女"))
+```
+
+```{r}
+xor(x5 %in% greatTaipei, y5=="女")
+```
+
+```{r}
+which(xor(x5 %in% greatTaipei, y5=="女"))
+```
+
