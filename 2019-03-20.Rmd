@@ -366,3 +366,42 @@ x3==y3
 !(x3==y3)
 ```
 
+```{r}
+library(readr)
+exData2 <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/exData2.csv")
+currency <- exData2$幣別
+
+```
+
+```{r}
+class (currency)
+```
+
+```{r}
+currency <- as.factor(currency)
+class(currency)
+```
+
+```{r}
+head(currency)
+
+```
+
+```{r}
+levels(currency)
+```
+
+```{r}
+length(levels(currency))
+```
+
+```{r}
+step1_currencyVector <- levels(currency)
+step1_currencyVector
+```
+
+```{r}
+step2_currencyVector <- length(step1_currencyVector)
+step2_currencyVector
+```
+
