@@ -405,3 +405,8 @@ step2_currencyVector <- length(step1_currencyVector)
 step2_currencyVector
 ```
 
+```{r}
+head(currency)
+sum(currency =="日圓JPY/USD" )
+```
+
