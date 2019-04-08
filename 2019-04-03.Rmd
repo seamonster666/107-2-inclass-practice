@@ -53,3 +53,64 @@ xor(x5 %in% greatTaipei, y5=="女")
 which(xor(x5 %in% greatTaipei, y5=="女"))
 ```
 
+```{r}
+library(readr)
+exData2 <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/exData2.csv")
+date <- as.character(exData2$期間)
+currency <- exData2$幣別
+exchangeRate <- exData2$匯率
+```
+
+請把date的class存成date clas
+
+```{r}
+class(date)
+```
+
+```{r}
+library(lubridate)
+date <- ymd(date)
+```
+
+```{r}
+class(date)
+```
+1980-08-01之後的資料有多少筆
+```{r}
+isAfter19800801 <-
+  date >= ymd("1980-08-01")
+isAfter19800801
+```
+
+```{r}
+sum(isAfter19800801)
+```
+幣別為“歐元USD/EUR”的資料有多少筆
+```{r}
+head(currency)
+
+```
+
+```{r}
+head(currency=="歐元USD/EUR")
+isEur <- currency=="歐元USD/EUR"
+```
+
+```{r}
+sum(isEur)
+```
+有將currency轉乘 factor class
+```{r}
+currency <- as.factor(currency)
+```
+
+```{r}
+isEur <- currency=="歐元USD/EUR"
+sum(isEur)
+```
+exchangeRate有多少筆NA
+```{r}
+isexchangena <- is.na(exchangeRate)
+sum(isexchangena)
+```
+
