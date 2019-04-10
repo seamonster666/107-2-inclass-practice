@@ -8,10 +8,6 @@ output: html_document
 library(stringr)
 ```
 
-```{r}
-month <- c("3","4","2")
-day <- c("11","5","7")
-```
 
 ```{r}
 course <- c("籃球","棒球","電視")
@@ -34,9 +30,29 @@ major
 year <- str_sub(studentID,2,4)
 year
 ```
+#5,6代表第五個到第六個
+#2,4代表第二到第四個
 
-
-
-
+```{r}
+month <- c("3","4","6")
+day <- c("11","5","7")
+char1 <- c("月","月","月")
+char2 <- c("日","日","日")
+month
+char1
+day 
+char2
+str_c(month,char1,day,char2)
+```
+#c代表合併
+```{r}
+str_c(month,c("月"),day,c("日"))
+str_c(month,"",day,"日")
+```
+```{r}
+month
+day
+str_c(month,day, sep="月-")
+```
 
 
