@@ -107,4 +107,36 @@ second <-str_sub(birthday,5,6)
 third <-str_sub(birthday,7,8)
 str_c("西元",first,"年",second,"月",third,"日")
 ```
+#練習二
+```{r}
+years<-c("099/01","099/02","099/03")
+```
+
+```{r}
+www <- str_split(years,"/")
+www
+```
+
+```{r}
+aaa <- str_sub(www,4,6)
+bbb <-str_sub(www,11,12)
+aaa2 <- as.integer(aaa)
+aaa3 <- aaa2+1911
+aaa4 <- as.character(aaa3)
+str_c(aaa4,"-",bbb)
+```
+
+```{r}
+b1<-list("a","b",c(1:10))
+typeof(b1)
+b1
+```
+
+```{r}
+b2<-list(
+  亦楓="beer",
+  第二個="b",
+  第三個=c(1:10))
+b2
+```
 
