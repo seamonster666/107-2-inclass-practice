@@ -136,7 +136,7 @@ ass$成績單
 ```
 
 ```{r}
-your_github_username <- "tpemartin"
+your_github_username <- "seamonster666"
 your_practice_reponame <- "107-2-inclass-practice"
 library(httr)
 library(stringr)
