@@ -34,10 +34,57 @@ plasticContainer <- list(
   Cool=c(FALSE,FALSE,TRUE,TRUE)    # location 3
 )
 ```
-
+#取出其中一個元素
 ```{r}
 plasticContainer
 plasticContainer[["Cool"]] 
 plasticContainer[[2]]
+```
+#取出Box的第二個元素
+```{r}
+ffs <-plasticContainer[["Box"]] 
+ffs[[2]]
+```
+
+```{r}
+ass <- list(成績單 = c(
+  個經=90,
+  總經=77,
+  統計=88)
+)
+```
+
+```{r}
+ffsb <-ass[["成績單"]]
+ffsb[[1]]
+```
+
+```{r}
+studentRecord <-
+  list(
+    學號="410073058",
+    姓名="王小明",
+    性別="男",
+    學年平均成績=list(
+      一年級=88,
+      二年級=90.3,
+      三年級=92,
+      四年級=95
+    )
+  )
+
+studentRecord
+```
+
+```{r}
+eet <-studentRecord[["姓名"]]
+eet2 <-studentRecord[["學年平均成績"]]
+eet
+eet2[[3]]
+```
+
+```{r}
+plasticContainer[c("Box","Cool")] 
+plasticContainer[c(1,2)]
 ```
 
