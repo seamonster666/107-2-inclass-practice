@@ -87,4 +87,40 @@ eet2[[3]]
 plasticContainer[c("Box","Cool")] 
 plasticContainer[c(1,2)]
 ```
+#用一個中括號的話,取出的元素會和母體一樣
+```{r}
+zzx <- plasticContainer[c("Box")] 
+zzx
+zzc <-plasticContainer[["Box"]] 
+zzc
+
+```
+
+```{r}
+plasticContainer <- list(
+  greenBox=c("paper","scissor"),     # location 1
+  redBox=c(1,3,2.5),               # location 2
+  blueBox=c(TRUE,FALSE,TRUE,TRUE)    # location 3
+)
+```
+
+```{r}
+extract1 <- plasticContainer[c("greenBox")]
+extract2 <- plasticContainer[[c("greenBox")]]
+```
+
+```{r}
+extract1[[1]][[1]]
+extract2[[1]]
+```
+
+```{r}
+length(plasticContainer)
+plasticContainer[c(F,F,T)]
+```
+
+```{r}
+成績單
+成績單[c(T,TRUE,F)]
+```
 
