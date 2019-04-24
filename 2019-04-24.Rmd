@@ -112,3 +112,45 @@ class(StuDF4)
 StuDF4
 ```
 
+#[.R , .C] object extraction
+```{r}
+LETTERS # R內設元素值為英文字母群的character vector
+chosenLETTERSK <- LETTERS[1:26]
+
+```
+
+```{r}
+matObj15 <- matrix(chosenLETTERSK,2,13)
+matObj15
+tolower(matObj15) -> mj
+mj
+```
+
+```{r}
+matObj15[1,]
+matObj15[,8]
+mj[2,]
+mj[,12]
+```
+#tolower 轉成大寫
+#tpupper 轉成小寫
+```{r}
+LETTERS # R內設元素值為英文字母群的character vector
+chosenLETTERS <- LETTERS[1:15]
+matObj1 <- matrix(chosenLETTERS,5,3)
+matObj1
+```
+
+
+```{r}
+chosenLETTERS[[8]]
+matObj1[[8]]
+```
+
+```{r}
+matObj1
+matObj1[3,2] 
+matObj1[c(T,F,F,T,F),c(F,TRUE,T)]
+matObj1[c(1,4),c(2,3)]
+```
+
