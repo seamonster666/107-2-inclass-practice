@@ -162,4 +162,9 @@ classSurvey <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data
 ```{r}
 classSurvey[c(1:60),c(4,5)]
 ```
+取出女性
+```{r}
+zxcv <- classSurvey$性別=="女"
+classSurvey[c(zxcv),]
+```
 
