@@ -153,4 +153,13 @@ matObj1[3,2]
 matObj1[c(T,F,F,T,F),c(F,TRUE,T)]
 matObj1[c(1,4),c(2,3)]
 ```
+#練習題
+```{r}
+library(readr)
+classSurvey <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/classSurvey.csv")
+```
+取出性別，學分數
+```{r}
+classSurvey[c(1:60),c(4,5)]
+```
 
