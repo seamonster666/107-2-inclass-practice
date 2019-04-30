@@ -138,6 +138,7 @@ aws <- c(1:30)
 
 names(commitCheck) <- str_c("commit",aws)
 names(commitCheck)
+commitCheck
 
 ```
 
