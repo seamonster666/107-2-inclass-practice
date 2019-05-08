@@ -205,7 +205,11 @@ sampledTranscriptData裡每個元素底下的值都是一位同學在一門課�
 ### 7.1 子樣本與當人比例
 取出科目名稱為「科目204」的學期成績，計算該科的當人比例（子樣本中成績不及格的比例）將此值存在答案物件failRate裡（為numeric/double class）。
 ```{r ans71}
-# failRate
+(sampledTranscriptData$科目名稱 == "科目204") -> chosenSubjectLogi
+sampledTranscriptData$學期成績[chosenSubjectLogi] -> chosenGrades
+sum(chosenGrades<60)/length(chosenGrades) -> failRate
+
+failRate
 ```
 
 
@@ -215,7 +219,12 @@ sampledTranscriptData裡每個元素底下的值都是一位同學在一門課�
 
 「學屆」元素值代表的是每一位同學的入學學年，可由學號的第2到4位字元產生，「系碼」即學號的第5到6位字元；如410073298即為100學年入學，系碼73。另本題的答案物件為sampledTranscriptData。（使用`sampledTranscriptData$學屆 <- `及`sampledTranscriptData$系碼 <-`，將個別由學號取出之值放在`<-`右側即可在sampleTranscriptData新增這兩個元素。）
 ```{r ans72}
-# sampledTranscriptData
+sampledTranscriptData$學屆 <- 
+  str_sub(sampledTranscriptData$學號,2,4)
+sampledTranscriptData$系碼 <- 
+  str_sub(sampledTranscriptData$學號,5,6)
+
+sampledTranscriptData
 ```
 
 ### 7.3 產生學系 str_replace_all
