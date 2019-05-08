@@ -131,18 +131,30 @@ str_replace(twDates,"民國","") -> twDates2
 str_replace(twDates2,"月","") -> twDates2  
 twDates2
 ```
+```{r}
+str_replace_all(twDates,"(民國)|(月)","") #另一種方法
+```
+
 
 ### 5.2 取出年份
 取出民國年的並加上1911年轉成西元年，將此年份存在答案物件westYears裡（class為integer）。(hint: `str_split()`可分割字串,再使用第3題取出你要的部份)
 ```{r ans52}
-# westYears
+str_sub(twDates,3,5) -> yy
+as.integer(yy)+1911 -> westYears
+
+westYears
 ```
 
 ### 5.3 西元年月日
 將twDates民國年月轉成date class的西元年月日，原始資料沒有日，請設定成每月1日。例如："民國100年5月"會轉成2011-05-01的date class日期。答案請存westDates答案物件。
 
 ```{r ans53}
-# westDates
+str_split(twDates2,"年") -> dataList
+map(dateList,~.[[2]]) -> mm    #取每個元素的第二個
+unlist(mm) -> oo    #原本是list,改成character
+str_c(as.character(westYears),oo,"01",sep="-") -> westDates 
+ymd(westDates) -> westDates
+westDates
 ```
 
 
@@ -158,14 +170,25 @@ names(invoiceList) <-
 ### 6.1 改元素名稱
 請將元素名稱「訂單時間(以訂單時區顯示)」改成「訂單時區之下單時間」。答案最後一行請寫invoiceList答案物件。
 ```{r ans61}
-# invoiceList
+names(invoiceList)[[2]] <- "訂單時區之下單時間"
+invoiceList
 ```
 
 ### 6.2 轉UTC
 請將每個「訂單時區之下單時間」依其「訂單時區」轉成UTC時間date time class（即POSIXct class）後，存在「UTC時間」對應的位置裡。最後一行請打本題答案物件invoiceList。
 
 ```{r ans62}
-# invoiceList 
+(invoiceList$訂單時區=="America/New_York") -> nyLogical
+(invoiceList$訂單時區=="Asia/Taipei") -> tpLogical
+
+invoiceList$UTC時間[nyLogical] <-
+  with_tz(ymd_hms(invoiceList$`訂單時區之下單時間`[nyLogical],
+          tz="America/New_York"),tzone="UTC")
+invoiceList$UTC時間[tpLogical] <-
+  with_tz(ymd_hms(invoiceList$`訂單時區之下單時間`[tpLogical],
+          tz="Asia/Taipei"),tzone="UTC")
+
+invoiceList
 ```
 
 
