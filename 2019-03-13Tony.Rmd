@@ -23,6 +23,7 @@ a2 <- 5L
 
 ```{r}
 class(a2)
+class(a)
 ```
 ```{r}
 aVector <- c(5,6,7)

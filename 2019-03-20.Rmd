@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 dialogue <- c("小明說：'明天不用上課。'",
                "小花說：'真的嗎？'")
 
-cat(dialogue, sep="\n")
+cat(dialogue, sep="\n") 
 ```
 
             
@@ -45,13 +45,16 @@ levels(studentMajors)
 
 
 ```{r}
-studentMajors <- factor(
+studentMajors2 <- factor(
   c("經濟系","統計系","法律系")
 )
 ```
 
 ```{r}
-typeof(studentMajors)
+typeof(studentMajors2)
+levels(studentMajors2)
+studentMajors2
+as.integer(studentMajors2)
 ```
 
 ```{r}
@@ -78,6 +81,7 @@ birthplace
 ```{r}
 trueInteger <- as.integer(stringInteger)
 class(trueInteger) # 可以進行數值運算
+trueInteger
 ```
 
 ```{r}
@@ -172,7 +176,7 @@ tppDateTime
 ```
 
 ```{r}
-London2DateTime <- with_tz(twwDateTime,tzone="Europe/London")
+London2DateTime <- with_tz(twwwDateTime,tzone="Europe/London")
 ```
 
 ```{r}
@@ -253,6 +257,12 @@ startingDate + days(145)
 ```{r}
 startingDate + minutes(1)
 ```
+```{r}
+ymd("2000-02-01") -> startingDate
+ymd("2019-08-11") -> endingDate
+endingDate - startingDate
+```
+
 
 ```{r}
 x <- 98
@@ -261,15 +271,13 @@ x2 <- c(1,5,10)
 y2 <- c(-1,5,20)
 ```
 ```{r}
-
+x==y
 ```
 
 ```{r}
 x>=y
 ```
-```{r}
 
-```
 
 ```{r}
 x<y

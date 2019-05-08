@@ -61,7 +61,7 @@ currency <- exData2$幣別
 exchangeRate <- exData2$匯率
 ```
 
-請把date的class存成date clas
+請把date的class存成date class
 
 ```{r}
 class(date)

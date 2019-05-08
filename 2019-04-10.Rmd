@@ -47,7 +47,7 @@ str_c(month,char1,day,char2)
 #c代表合併
 ```{r}
 str_c(month,c("月"),day,c("日"))
-str_c(month,"",day,"日")
+str_c(month,"月",day,"日")
 ```
 ```{r}
 month
@@ -121,7 +121,7 @@ www
 aaa <- str_sub(years,1,3)
 aaa2 <- as.integer(aaa)
 aaa3 <- aaa2 +1911
-aaa4 <= as.character(aaa3)
+aaa4 <- as.character(aaa3)
 aaa5 <- str_c(aaa4,str_sub(years,4,6))
 aaa5
 ```
@@ -137,6 +137,40 @@ b2<-list(
   亦楓="beer",
   第二個="b",
   第三個=c(1:10))
+b2
+```
+
+```{r}
+aWithNames <- c(
+  a1=1,
+  a2=2,
+  a3=3
+)
+typeof(a)
+aWithNames
+```
+
+```{r}
+a<-c(1:3)
+typeof(a)
+a
+```
+
+```{r}
+b1<-list("a","b",c(1:10))
+typeof(b1)
+```
+
+```{r}
+b2<-list(
+  第一個="a",
+  第二個="b",
+  第三個=c(1:10))
+typeof(b2)
+```
+
+```{r}
+b1
 b2
 ```
 
