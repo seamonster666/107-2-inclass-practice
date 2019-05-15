@@ -111,4 +111,49 @@ isAsiaCrisis
 ```{r}
 exData3[isAsiaCrisis,]
 ```
+#8.1.2 practice 
+```{r}
+library(readr)
+transcriptDataFinal <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/transcriptDataFinal.csv")
+transcriptDataFinal
+```
+#選出“92aS67fee”的子樣本
+```{r}
+awsd <- transcriptDataFinal$學號=="92aS67fee"
+transcriptDataFinal[awsd,]
+```
+
+#8.1
+```{r}
+utility_cobb_douglass <- function(x,y,.alpha,.beta){
+  utilValue <- x^.alpha*y^.beta # 程序產生output值
+  return(utilValue) # 傳回output值
+}
+```
+
+```{r}
+class(utility_cobb_douglass)
+utility_cobb_douglass(1.456,2.434,0.534,0.8321)
+```
+
+```{r}
+ya <- function(x,y,z,r){
+  sda1 <- x^z*z^y*y*r/x^6.784
+return(sda1)
+}
+ya(6.6879,7.932,8.58302,9.4328)
+```
+
+```{r}
+demand_fun <- function(a,b,P){
+  Qd <- a+b*P
+  return(Qd)
+}
+supple_fun  <- function(c,d,P){
+  Qs <- c-d*P
+  return(Qs)
+}
+demand_fun (2,3,4)
+supple_fun(1,1.2,3)
+```
 
