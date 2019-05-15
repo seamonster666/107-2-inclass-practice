@@ -1,14 +1,61 @@
 ---
-title: '2019-05-08'
+title: '2019-05-15'
 author: "Tony"
-date: "2019年5月8日"
+date: "2019年5月15日"
 output: html_document
 ---
 
 ```{r}
+Vector1 <- letters[1:6]
+Vector1
 
+names(Vector1)
 ```
 
 
+```{r}
+names(Vector1) <- c('名稱1','名稱2','名稱3','名稱4','名稱5','名稱6')
+names(Vector1)
+```
+
+```{r}
+names(Vector1)[[2]]
+
+```
+
+#colnames
+
+```{r}
+StuDF2 <- data.frame(
+  學號=c(172,214,322,425,517),
+  姓名=c("小明","大雄","胖虎","小新","大白"),
+  成績=c(80,60,90,70,50),
+  stringsAsFactors = FALSE
+  )
+StuDF2 
+```
+
+
+```{r}
+colnames(StuDF2) 
+rownames(StuDF2)
+```
+
+```{r}
+colnames(StuDF2) <- c("ww","oo","kk")
+colnames(StuDF2)
+StuDF2
+```
+#若只改一個
+```{r}
+colnames(StuDF2)[[3]] <- c("哈")
+colnames(StuDF2)
+StuDF2
+```
+#若改兩個
+```{r}
+colnames(StuDF2)[c(1,2)] <- c("了","屋")
+colnames(StuDF2) 
+StuDF2
 ```
 
