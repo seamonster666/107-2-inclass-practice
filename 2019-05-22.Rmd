@@ -69,3 +69,24 @@ return(output)
  date_convert_twYM("民國102年12月") 
 ```
 
+#預設值
+
+```{r}
+date_convert_twYM <- function(input,input2="02") {
+  year<-as.integer(str_extract(input,"(?<=(民國))[:digit:]+"))+1911
+month<-str_extract(input,"[:digit:]+(?=月)")
+output <- ymd(str_c(year,month,input2,sep="-"))
+output
+return(output)
+}
+```
+
+
+
+```{r}
+
+date_convert_twYM("民國102年12月","05")
+
+```
+
+
