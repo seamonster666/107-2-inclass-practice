@@ -5,26 +5,35 @@ date: "2019年5月22日"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+請把以America/New_York時區輸入的時間字串"1973-02-21 12:05:22"，轉成date time class, 再改成Asia/Taipei時間顯示。
+
+```{r}
+ymd_hms_tzChange <- function(input,fromTzone,toTzone){
+  nwtime <-  ymd_hms(input , tz=fromTzone)
+  
+  ans <-  with_tz(nwtime,tzone=toTzone)
+  
+  ans
+  return(ans)
+}
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```{r}
+ymd_hms_tzChange("1973-02-21 12:05:22","America/New_York","Asia/Taipei")
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r}
+ymd_hms_tzChange1 <- function(input1){
+  nwtime2 <-  ymd_hms(input1 , tz="America/New_York")
+  
+  ans1 <-  with_tz(nwtime2,tzone="Asia/Taipei")
+  
+  ans1
+  return(ans1)
+}
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
+ymd_hms_tzChange1("1973-02-21 12:05:22")
+```
+
