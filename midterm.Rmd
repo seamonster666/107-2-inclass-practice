@@ -161,10 +161,10 @@ westDates
 ## 6 differen time zone
 執行以下程式引入invoiceList物件，其中「訂單時區」與「訂單時間(以訂單時區顯示)」的每筆資料是訂單來自時區及以該時區輸入的下單時間字串，「UTC時間」則是個目前無特別意義的UTC時間。
 ```{r data6}
-load("invoiceList.Rda")
-str(invoiceList)
-names(invoiceList) <-
-  c('訂單時區','訂單時間(以訂單時區顯示)','UTC時間')
+library(readr)
+invoiceList <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/invoiceList.csv",
+col_types = cols(訂單時間.以訂單時區顯示. = col_character()))
+names(invoiceList)[[2]] <- "訂單時區之下單時間"
 ```
 
 ### 6.1 改元素名稱
@@ -180,13 +180,17 @@ invoiceList
 ```{r ans62}
 (invoiceList$訂單時區=="America/New_York") -> nyLogical
 (invoiceList$訂單時區=="Asia/Taipei") -> tpLogical
+nydatetime <- ymd_hms(invoiceList$`訂單時區之下單時間`[nyLogical],
+          tz="America/New_York")
 
 invoiceList$UTC時間[nyLogical] <-
-  with_tz(ymd_hms(invoiceList$`訂單時區之下單時間`[nyLogical],
-          tz="America/New_York"),tzone="UTC")
+  with_tz(nydatetime,tzone="UTC")
+
+tpdatetime <-ymd_hms(invoiceList$`訂單時區之下單時間`[tpLogical],
+          tz="Asia/Taipei")
+
 invoiceList$UTC時間[tpLogical] <-
-  with_tz(ymd_hms(invoiceList$`訂單時區之下單時間`[tpLogical],
-          tz="Asia/Taipei"),tzone="UTC")
+  with_tz(tpdatetime,tzone="UTC")
 
 invoiceList
 ```
