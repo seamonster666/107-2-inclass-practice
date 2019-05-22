@@ -36,4 +36,36 @@ ymd_hms_tzChange1 <- function(input1){
 ```{r}
 ymd_hms_tzChange1("1973-02-21 12:05:22")
 ```
+#以上可用到midterm 6-2
+
+```{r}
+library(stringr)
+sample(99:103,15,replace = T)-> yy
+sample(1:12,15,replace=T)-> mm
+str_c("民國",str_pad(yy,3,"left","0"),"年",mm,"月") -> twDates
+twDates
+```
+
+```{r}
+library(stringr); library(lubridate)
+yyyy<-as.integer(str_extract(twDates,"(?<=(民國))[:digit:]+"))+1911
+mm<-str_extract(twDates,"[:digit:]+(?=月)")
+yyyymmdd <- ymd(str_c(yyyy,mm,"01",sep="-"))
+yyyymmdd
+```
+
+#轉換不同民國年月成西元date
+```{r}
+date_convert_twYM <- function(input) {
+  year<-as.integer(str_extract(input,"(?<=(民國))[:digit:]+"))+1911
+month<-str_extract(input,"[:digit:]+(?=月)")
+output <- ymd(str_c(year,month,"01",sep="-"))
+output
+return(output)
+}
+```
+
+```{r}
+ date_convert_twYM("民國102年12月") 
+```
 
