@@ -130,9 +130,81 @@ gpa_fun <- function(studentID){
     sum(subSample$學分數) -> GPA
   return(GPA)
   }else{
-    message("查無此學號") 
+    message("no shit") 
   }
     
 }
+gpa_fun("92aS67fee") # 顯示82.85276
+gpa_fun("aa829838s") # 查無此學號
+```
+
+```{r}
+a <- readline(prompt = "請輸入一個數字： ")
+if(a==1) {
+  print("你輸入了1")
+} else if(a==2) {
+  print("你輸入了2")
+} else if(a==3) {
+  print("你輸入了3")
+} else {
+  print("你輸入了其他數字")
+}
+```
+
+```{r}
+supply_fun4 <- function(P,a,b){
+  Qs <- a+b*P
+  if(P < 0) {
+    message("P不能為負值") # 在螢幕出現的「錯誤」提示，沒有輸出任何值
+  } else if(P < -a/b) {
+    message("P必需大於等於",-a/b,"(即-a/b值)")
+  } else {
+    return(Qs)
+  }
+}
+supply_fun4(P=-1,-3,1)
+supply_fun4(P=2,-3,1)
+supply_fun4(P=3,-3,1)
+```
+
+```{r}
+suprrr <- function(c){
+c%%3 ->p
+c%%5 ->o
+c%%15 -> l
+  
+  if(l==0) {
+    message("fizzbizz") 
+  } else if(o==0) {
+    message("buzz")
+  } else if(p==0) {
+   message("fizz")
+  } else{
+    message("bald")
+  }
+
+}
+
+suprrr(1106)
+```
+#any all
+
+```{r}
+a <- c(3,1,5)
+a>2 # 此邏輯條件產生三個值
+
+```
+
+```{r}
+if(a>2) {
+  print("a大於2")
+}
+```
+要每個元素都大於二
+```{r}
+a
+a>2 
+all(a>2)
+any(a>2)
 ```
 
