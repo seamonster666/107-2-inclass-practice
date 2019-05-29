@@ -31,3 +31,108 @@ browseURL("https://bookdown.org/tpemartin/ntpu-programming-for-data-science/func
 textbook()
 ```
 
+```{r}
+library(readr)
+transcriptDataFinal <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/transcriptDataFinal.csv")
+```
+#若要一次輸出兩個元素
+```{r}
+gpa_fun2 <- function(studentID){
+  transcriptDataFinal$學號==studentID -> logiChosenStudent
+  
+  subSample <- transcriptDataFinal[logiChosenStudent,]
+  
+  sum(subSample$學期成績*subSample$學分數)/
+    sum(subSample$學分數) -> GPA
+  return(
+    list(
+      平均成績=GPA,
+      成績單=subSample
+      )
+  )
+}
+```
+
+```{r}
+gpa_fun2("92aS67fee") -> outputValue
+outputValue$平均成績
+outputValue$成績單
+```
+#練習
+```{r}
+demand_supply_fun <- function(P,a,b,c,d) {
+  Qs=a+b*P
+  Qd=c-d*P
+  Es=Qs-Qd
+  return(
+    list(供給量=Qs,
+            需求量=Qd,
+            超額供給=Es,
+            )
+  )
+}
+```
+
+
+
+#條件執行
+```{r}
+a <- readline(prompt = "請輸入一個數字： ")
+if(a < 0) {
+  print("a為負值")
+}
+```
+
+```{r}
+supply_fun2 <- function(P,a,b){
+  Qs <- a+b*P
+  if(P>=0) {
+    return(Qs)
+  }
+}
+supply_fun2(P=-1,0,1)
+supply_fun2(P=2,0,1)
+```
+
+```{r}
+a <-  readline(prompt = "請輸入一個數字： ")
+if(a < 0) {
+  print("a為負值")
+} else {
+  print("a不為負值")
+}
+```
+
+
+```{r}
+supply_fun3 <- function(P,a,b){
+  Qs <- a+b*P
+  if(P < 0) {
+    message("P cannot be negative") # 在螢幕出現的「錯誤」提示，沒有輸出任何值
+  } else {
+    return(Qs)
+  }
+}
+supply_fun3(P=-1,0,1)
+supply_fun3(P=2,0,1)
+```
+
+```{r}
+library(readr)
+transcriptDataFinal <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/transcriptDataFinal.csv")
+gpa_fun <- function(studentID){
+  if(studentID %in% transcriptDataFinal$學號){
+   transcriptDataFinal$學號==studentID -> logiChosenStudent
+  
+  subSample <- transcriptDataFinal[logiChosenStudent,]
+  
+  sum(subSample$學期成績*subSample$學分數)/
+    sum(subSample$學分數) -> GPA
+  return(GPA)
+  }else{
+    message("查無此學號") 
+  }
+    
+}
+```
+
