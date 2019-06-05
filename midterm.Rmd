@@ -149,7 +149,7 @@ westYears
 將twDates民國年月轉成date class的西元年月日，原始資料沒有日，請設定成每月1日。例如："民國100年5月"會轉成2011-05-01的date class日期。答案請存westDates答案物件。
 
 ```{r ans53}
-str_split(twDates2,"年") -> dataList
+str_split(twDates2,"年") -> dateList
 map(dateList,~.[[2]]) -> mm    #取每個元素的第二個
 unlist(mm) -> oo    #原本是list,改成character
 str_c(as.character(westYears),oo,"01",sep="-") -> westDates 
@@ -264,7 +264,7 @@ changeMajorStudent
 請計算學號"410073409b"在101學年第1學期的平均成績（即該學期每科成績乘每科學分後加總，再除以總學分數），答案存在答案物件studentGPA(為numeric class)。
 ```{r ans75}
 (sampledTranscriptData$學號 == "410073409b" &
-  sampledTranscriptData$學年==100 &
+  sampledTranscriptData$學年==101 &
   sampledTranscriptData$學期==1) -> logiSelect
   
 sum(sampledTranscriptData$學分數[logiSelect]*
