@@ -1,0 +1,71 @@
+---
+title: '2019-06-12'
+author: "Tony"
+date: "2019年6月12日"
+output: html_document
+---
+#Sequance
+```{r}
+load(url("https://www.dropbox.com/s/duh5aaqgl2f5m3z/loopTranscriptData.Rda?raw=1"))
+studentIds <- unique(transcriptDataFinal$學號) # 全部可能學號
+studentIds5 <- studentIds[1:5] # 前5筆學號
+```
+
+```{r}
+for(i in seq_along(studentIds5)){
+  print(studentIds5[[i]])
+}
+```
+#範例一
+任務：針對studentIds5裡的學號一一進行print()
+#sequance source
+```{r}
+studentIds5
+```
+#body
+```{r}
+i <- 1 
+print(studentIds5[[i]])
+```
+#for loop
+```{r}
+for(i in seq_along(studentIds5)){
+  print(studentIds5[[i]])
+}
+```
+#範例二
+```{r}
+gmailAddress <- c(
+  "tim@gmail.com",
+  "anita",
+  "yellen@gmail.com",
+  "huang@gmail.com"
+)
+```
+#sequance source
+```{r}
+gmailAddress
+```
+#body
+```{r}
+library(stringr)
+i <- 1
+if(str_detect(gmailAddress[i],"gmail.com")){
+  print(gmailAddress[i])
+}else{
+  print(str_c(gmailAddress[i],"@gmail.com"))
+}
+```
+#for loop
+```{r}
+i <-1
+for(i in seq_along(gmailAddress)){
+  if(str_detect(gmailAddress[i],"gmail.com")){
+  print(gmailAddress[i])
+}else{
+  print(str_c(gmailAddress[i],"@gmail.com"))
+}
+  
+}
+```
+
