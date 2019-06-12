@@ -79,4 +79,18 @@ for(i in seq_along(commitHistory)){
   print(commitHistory[[i]]$commit$author$name)
 }
 ```
+存下來每個commit的committer
+```{r}
+for(i in seq_along(commitHistory)){
+  print(commitHistory[[i]]$commit$committer$name)
+}
+```
+存下來每個author與committer同人的commitDate
+```{r}
+for(i in seq_along(commitHistory)){
+  if(commitHistory[[i]]$commit$author$name==commitHistory[[i]]$commit$committer$name){
+  print(commitHistory[[i]]$commit$committer$date)
+  }
+}
+```
 
