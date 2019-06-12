@@ -79,12 +79,14 @@ for(i in seq_along(commitHistory)){
   print(commitHistory[[i]]$commit$author$name)
 }
 ```
+
 存下來每個commit的committer
 ```{r}
 for(i in seq_along(commitHistory)){
   print(commitHistory[[i]]$commit$committer$name)
 }
 ```
+
 存下來每個author與committer同人的commitDate
 ```{r}
 for(i in seq_along(commitHistory)){
@@ -92,5 +94,50 @@ for(i in seq_along(commitHistory)){
   print(commitHistory[[i]]$commit$committer$date)
   }
 }
+```
+#output
+#範例三
+將transcriptDataFinal資料中第i個的平均成績算出來並儲存（使用gpa_fun()）
+
+
+```{r}
+saveGPA5 <- vector("numeric",length(studentIds5))
+saveGPA5
+
+```
+```{r}
+saveGPA5 <- vector("numeric",length(studentIds5))
+for(i in seq_along(studentIds5)){
+gpa_fun(studentIds5[[i]]) -> saveGPA5[[i]]
+}
+saveGPA5
+```
+任務一：存下來每個commit的author。
+
+任務二：存下來每個commit的committer。
+```{r}
+aaw <- vector("character",length(commitHistory))
+for(i in seq_along(commitHistory)){
+  commitHistory[[i]]$commit$author$name -> aaw[[i]]
+}
+aaw
+```
+
+```{r}
+ssa <- vector("character",length(commitHistory))
+for(i in seq_along(commitHistory)){
+  commitHistory[[i]]$commit$committer$name -> ssa[[i]]
+}
+ssa
+```
+```{r}
+qqq <- vector("character",length(commitHistory))
+for(i in seq_along(commitHistory)){
+  if(commitHistory[[i]]$commit$author$name==commitHistory[[i]]$commit$committer$name) {
+    commitHistory[[i]]$commit$committer$date -> qqq[[i]]
+  }
+
+}
+qqq
 ```
 
